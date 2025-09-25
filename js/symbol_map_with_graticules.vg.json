@@ -11,20 +11,20 @@
     },
     {
       "data": {
-        "url": "js/malaysia_states.topojson",
+        "url": "https://yuankahmun.github.io/FIT3179V/js/malaysia_states.topojson",
         "format": { "type": "topojson", "feature": "states" }
       },
       "mark": { "type": "geoshape", "fill": "#f7fbff" }
     },
     {
       "data": {
-        "url": "js/malaysia_states.topojson",
+        "url": "https://yuankahmun.github.io/FIT3179V/js/malaysia_states.topojson",
         "format": { "type": "topojson", "feature": "states" }
       },
       "mark": { "type": "geoshape", "fill": null, "stroke": "#666666", "strokeWidth": 0.8 }
     },
     {
-      "data": { "url": "data/primary_secondary_countbydistrict.csv" },
+      "data": { "url": "https://yuankahmun.github.io/FIT3179V/data/primary_secondary_countbydistrict.csv" },
       "transform": [
         { "calculate": "toNumber(datum.schools)", "as": "schools_num" },
         { "calculate": "toNumber(datum.lat)",     "as": "lat_num" },
@@ -68,7 +68,7 @@
       }
     },
     {
-      "data": { "url": "data/primary_secondary_countbydistrict.csv" },
+      "data": { "url": "https://yuankahmun.github.io/FIT3179V/data/primary_secondary_countbydistrict.csv" },
       "transform": [
         {
           "aggregate": [
