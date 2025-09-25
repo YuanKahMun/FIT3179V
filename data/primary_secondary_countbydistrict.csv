@@ -1,0 +1,33 @@
+state,stage,schools,lat,lon
+Johor,primary,908,1.4556,103.7611
+Johor,secondary,284,1.4556,103.7611
+Kedah,primary,548,5.65,100.5
+Kedah,secondary,204,5.65,100.5
+Kelantan,primary,418,6.1333,102.25
+Kelantan,secondary,178,6.1333,102.25
+Melaka,primary,238,2.1944,102.2486
+Melaka,secondary,78,2.1944,102.2486
+Negeri Sembilan,primary,353,2.5167,101.8
+Negeri Sembilan,secondary,126,2.5167,101.8
+Pahang,primary,543,3.8167,103.3333
+Pahang,secondary,198,3.8167,103.3333
+Perak,primary,852,4.4667,101.05
+Perak,secondary,253,4.4667,101.05
+Perlis,primary,74,6.4333,100.2
+Perlis,secondary,30,6.4333,100.2
+Pulau Pinang,primary,270,5.4144,100.3292
+Pulau Pinang,secondary,128,5.4144,100.3292
+Sabah,primary,1075,5.975,116.0725
+Sabah,secondary,221,5.975,116.0725
+Sarawak,primary,1265,4.3925,113.9861
+Sarawak,secondary,193,4.3925,113.9861
+Selangor,primary,661,3.0333,101.45
+Selangor,secondary,279,3.0333,101.45
+Terengganu,primary,352,5.3292,103.1361
+Terengganu,secondary,154,5.3292,103.1361
+W.P. Kuala Lumpur,primary,188,3.1478,101.6953
+W.P. Kuala Lumpur,secondary,104,3.1478,101.6953
+W.P. Labuan,primary,17,5.3,115.22
+W.P. Labuan,secondary,11,5.3,115.22
+W.P. Putrajaya,primary,16,2.93,101.69
+W.P. Putrajaya,secondary,11,2.93,101.69

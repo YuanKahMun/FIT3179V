@@ -1,0 +1,87 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 520,
+  "title": "Number of Schools by State, Malaysia (2022)",
+  "projection": { "type": "mercator", "center": [109.8, 3.9], "scale": 1800 },
+  "layer": [
+    {
+      "data": {
+        "url": "js/malaysia_states.topojson",
+        "format": { "type": "topojson", "feature": "states" }
+      },
+      "mark": { "type": "geoshape", "fill": "#f7fbff" }
+    },
+    {
+      "data": {
+        "url": "js/malaysia_states.topojson",
+        "format": { "type": "topojson", "feature": "states" }
+      },
+      "mark": { "type": "geoshape", "fill": null, "stroke": "#666666", "strokeWidth": 0.8 }
+    },
+    {
+      "data": { "url": "data/primary_secondary_countbydistrict.csv" },
+      "transform": [
+        { "calculate": "toNumber(datum.schools)", "as": "schools_num" },
+        { "calculate": "toNumber(datum.lat)",     "as": "lat_num" },
+        { "calculate": "toNumber(datum.lon)",     "as": "lon_num" },
+        {
+          "joinaggregate": [
+            { "op": "mean", "field": "lat_num", "as": "lat_c" },
+            { "op": "mean", "field": "lon_num", "as": "lon_c" }
+          ],
+          "groupby": ["state"]
+        },
+        { "calculate": "datum.stage==='secondary' ? 12 : -12", "as": "dx" },
+        { "calculate": "datum.stage==='secondary' ? -8 : 8",   "as": "dy" },
+        { "calculate": "datum.stage==='primary' ? 'Primary' : 'Secondary'", "as": "stage_label" },
+        { "filter": "isValid(datum.schools_num) && isValid(datum.lat_c) && isValid(datum.lon_c)" }
+      ],
+      "mark": { "type": "circle", "opacity": 0.85, "stroke": "white", "strokeWidth": 0.8 },
+      "encoding": {
+        "longitude": { "field": "lon_c" },
+        "latitude":  { "field": "lat_c" },
+        "xOffset":   { "field": "dx" },
+        "yOffset":   { "field": "dy" },
+        "size": {
+          "field": "schools_num",
+          "type": "quantitative",
+          "title": "Schools (count)",
+          "scale": { "type": "sqrt", "range": [30, 700] }
+        },
+        "color": {
+          "field": "stage_label",
+          "type": "nominal",
+          "scale": { "domain": ["Primary", "Secondary"], "range": ["#5DA5A4", "#F39C6B"] },
+          "legend": { "title": "Stage" }
+        },
+        "order": { "field": "schools_num", "sort": "descending" },
+        "tooltip": [
+          { "field": "state", "title": "State" },
+          { "field": "stage_label", "title": "Stage" },
+          { "field": "schools_num", "title": "Schools" }
+        ]
+      }
+    },
+    {
+      "data": { "url": "data/primary_secondary_countbydistrict.csv" },
+      "transform": [
+        {
+          "aggregate": [
+            { "op": "mean", "field": "lat", "as": "lat_avg" },
+            { "op": "mean", "field": "lon", "as": "lon_avg" }
+          ],
+          "groupby": ["state"]
+        },
+        { "calculate": "toNumber(datum.lon_avg)", "as": "lon_num" },
+        { "calculate": "toNumber(datum.lat_avg)", "as": "lat_num" }
+      ],
+      "mark": { "type": "text", "color": "#000000", "dy": -8, "fontSize": 12, "fontWeight": "bold" },
+      "encoding": {
+        "longitude": { "field": "lon_num" },
+        "latitude":  { "field": "lat_num" },
+        "text": { "field": "state" }
+      }
+    }
+  ]
+}

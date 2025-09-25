@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Educational Equity Across Malaysia</title>
+  <meta charset="utf-8" />
+  <title>Malaysia Schools Across States</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+    #controls { margin: 6px 0 10px; font-size: 14px; }
+    #vis { max-width: 1000px; }
+  </style>
 </head>
 <body>
-    <h1>Educational Equity Across Malaysia</h1>
-    <p><h2>This map provides insights into the state of educational equity across different regions in Malaysia.</h2></p>
+  <h1>Malaysia Schools Across States</h1>
 
-    <h2>Key Features:</h2>
-    <ul>
-        <li><h4>Interactive map showcasing educational equity metrics.</h4></li>
-        <li><h4>Visual representation of disparities in educational resources.</h4></li>
-    </ul>       
-    <h2>Data Source:</h2>
-    <p>
-        1. OpenDOSM - <a href="https://open.dosm.gov.my/">https://open.dosm.gov.my/</a><br>
-        2. SimpleMaps Malaysia Cities - <a href="https://simplemaps.com/data/my-cities">https://simplemaps.com/data/my-cities</a>
-    </p>
+  <div id="controls">
+    Version:
+    <select id="version">
+      <option value="js/symbol_map_with_graticules.vg.json" selected>With graticules</option>
+      <option value="js/symbol_map.vg.json">No graticules</option>
+    </select>
+  </div>
+
+  <div id="vis"></div>
+
+  <script src="js/vega_lite_vis.js"></script>
 </body>
 </html>
-
-
